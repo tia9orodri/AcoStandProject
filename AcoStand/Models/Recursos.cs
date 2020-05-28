@@ -13,7 +13,7 @@ namespace AcoStand.Models {
         [Key] 
         public int IdRecursos { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Preenchimento obrigatório.")]
         public string Designacao { get; set; }
 
         [Required]

@@ -18,16 +18,22 @@ namespace AcoStand.Models {
         [Key] 
         public int IdArtigo { get; set; }
 
-        [Required]
+        [Display(Name = "Título")]
+        [Required(ErrorMessage = "O preenchimento do {0} é obrigatório.")]
+        [StringLength(75, ErrorMessage = "O {0} deverá ter, no máximo, {1} caracteres.")]
         public string Titulo { get; set; }
 
-        [Required]
+        [Display(Name = "Preço")]
+        [Required(ErrorMessage = "O preenchimento do {0} é obrigatório.")]
+        [RegularExpression("^([0-9]{0,5}((,)?[0-9]{0,3}))$", ErrorMessage = "Este campo apenas poderá conter números.")]
         public string Preco { get; set; }
 
-        [Required]
+        [Display(Name = "Descrição")]
+        [Required(ErrorMessage = "O preenchimento da {0} é obrigatório.")]
+        [StringLength(500, ErrorMessage = "O {0} deverá ter, no máximo, {1} caracteres.")]
         public string Descricao { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "O preenchimento do {0} é obrigatório.")]
         public string Contacto { get; set; }
 
         /// <summary>

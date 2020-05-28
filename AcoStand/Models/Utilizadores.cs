@@ -11,7 +11,9 @@ namespace AcoStand.Models {
     public class Utilizadores {
 
         public Utilizadores() {
+            //Instanciar o Icollection de Artigos
             ListaArtigos = new HashSet<Artigos>();
+            //Instanciar o Icollection de Favoritos
             ListaFavoritos = new HashSet<Favoritos>();
             }
         /// <summary>
@@ -20,22 +22,35 @@ namespace AcoStand.Models {
         [Key]
         public int IdUtilizador { get; set; }
 
-        [Required]
+        [Display(Name = "Nome do Utilizador")]
+        [Required(ErrorMessage = "Preenchimento obrigatório.")]
+        [StringLength(75, ErrorMessage = "O {0} deverá conter {1} caracteres no máximo.")]
+        [RegularExpression("[A-ZÁÉÍÓÚ][a-záéíóúàèÌòùãõîôûâç]+(( | e | de | do | das | da | dos |-|')[A-ZÁÉÍÓÚ][a-zzáéíóúàèÌòùãõîôûâç]+)*",
+             ErrorMessage = "P.f verifique o {0} introduzido. Este deve ser composto por primeiro e ultimo nome. Cada palavra deve começar com Maiúscula. Não são aceites caracteres numéricos.")]
         public string Nome { get; set; }
 
         /// <summary>
         /// Username do utilizador
         /// </summary>
+        [Display(Name = "Username")]
         public string Username { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Preenchimento obrigatório.")]
+        [StringLength(30, ErrorMessage = "A {0} deverá conter {1} caracteres no máximo.")]
+        [RegularExpression("[A-ZÁÉÍÓÚ][a-záéíóúàèÌòùãõîôûâç]+(( | e | de | do | das | da | dos |-|')[A-ZÁÉÍÓÚ][a-zzáéíóúàèÌòùãõîôûâç]+)*",
+            ErrorMessage = "A {0} só pode conter letras. Cada palavra deve começar com Maiúscula.")]
         public string Localidade { get; set; }
 
         [Required]
-        //[StringLength(9)] - M ou F?
+        [StringLength(9)]
+        [RegularExpression("Masculino|Feminino", ErrorMessage = "Introduzir: Masculino ou Feminino")]
+        [Display(Name = "Sexo")]
         public string Sexo { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Preenchimento obrigatório.")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [Display(Name = "Data de Nascimento")]
         public DateTime DataNasc { get; set; }
 
         /// <summary>
