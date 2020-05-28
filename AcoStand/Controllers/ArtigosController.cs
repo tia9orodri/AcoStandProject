@@ -22,8 +22,15 @@ namespace AcoStand.Controllers
         // GET: Artigos
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Artigos.Include(a => a.Categoria).Include(a => a.Dono);
-            return View(await applicationDbContext.ToListAsync());
+            //obter a lsita dos artigos
+            var artigos = _context.Artigos.Include(a => a.Categoria).Include(a => a.Dono);
+            
+            
+
+
+
+
+            return View(await artigos.ToListAsync());
         }
 
         // GET: Artigos/Details/5

@@ -174,9 +174,6 @@ C:\Users\Tiago Rodrigues\Desktop\IPT\ti2_final\AcoStandProject\AcoStand\bin\Debu
 C:\Users\Tiago Rodrigues\Desktop\IPT\ti2_final\AcoStandProject\AcoStand\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Tiago Rodrigues\Desktop\IPT\ti2_final\AcoStandProject\AcoStand\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Tiago Rodrigues\Desktop\IPT\ti2_final\AcoStandProject\AcoStand\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Tiago Rodrigues\Desktop\IPT\ti2_final\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.csproj.CoreCompileInputs.cache
-C:\Users\Tiago Rodrigues\Desktop\IPT\ti2_final\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Tiago Rodrigues\Desktop\IPT\ti2_final\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Tiago Rodrigues\Desktop\IPT\ti2_final\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\Razor\Views\Artigos\Create.cshtml.g.cs
 C:\Users\Tiago Rodrigues\Desktop\IPT\ti2_final\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\Razor\Views\Artigos\Delete.cshtml.g.cs
 C:\Users\Tiago Rodrigues\Desktop\IPT\ti2_final\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\Razor\Views\Artigos\Details.cshtml.g.cs
@@ -197,3 +194,6 @@ C:\Users\Tiago Rodrigues\Desktop\IPT\ti2_final\AcoStandProject\AcoStand\obj\Debu
 C:\Users\Tiago Rodrigues\Desktop\IPT\ti2_final\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\Razor\Views\Utilizadores\Details.cshtml.g.cs
 C:\Users\Tiago Rodrigues\Desktop\IPT\ti2_final\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\Razor\Views\Utilizadores\Edit.cshtml.g.cs
 C:\Users\Tiago Rodrigues\Desktop\IPT\ti2_final\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\Razor\Views\Utilizadores\Index.cshtml.g.cs
+C:\Users\Tiago Rodrigues\Desktop\IPT\ti2_final\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.csproj.CoreCompileInputs.cache
+C:\Users\Tiago Rodrigues\Desktop\IPT\ti2_final\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Tiago Rodrigues\Desktop\IPT\ti2_final\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.MvcApplicationPartsAssemblyInfo.cache

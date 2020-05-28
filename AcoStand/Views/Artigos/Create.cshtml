@@ -4,9 +4,9 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+    <h1>Criar Novo Artigo</h1>
 
-<h4>Artigos</h4>
+<h4>Artigo</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -32,6 +32,12 @@
                 <input asp-for="Contacto" class="form-control" />
                 <span asp-validation-for="Contacto" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <label>Ficheiros: </label>
+                    <input type="file" name="ficheiro" multiple="multiple" />
+                </div>
+            </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Validado" /> @Html.DisplayNameFor(model => model.Validado)
@@ -39,11 +45,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="DonoFK" class="control-label"></label>
-                <select asp-for="DonoFK" class ="form-control" asp-items="ViewBag.DonoFK"></select>
+                <select asp-for="DonoFK" class="form-control" asp-items="ViewBag.DonoFK"></select>
             </div>
             <div class="form-group">
                 <label asp-for="CategoriaFK" class="control-label"></label>
-                <select asp-for="CategoriaFK" class ="form-control" asp-items="ViewBag.CategoriaFK"></select>
+                <select asp-for="CategoriaFK" class="form-control" asp-items="ViewBag.CategoriaFK"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -53,7 +59,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar atrás</a>
 </div>
 
 @section Scripts {
