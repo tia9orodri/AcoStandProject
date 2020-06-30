@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tiago Rodrigues\\Desktop\\IPT\\ti2_final\\AcoStandProject\\AcoStand\\AcoStand.csproj": {}
+    "C:\\Users\\Frederico Riachos\\Source\\Repos\\AcoStandProject\\AcoStand\\AcoStand.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tiago Rodrigues\\Desktop\\IPT\\ti2_final\\AcoStandProject\\AcoStand\\AcoStand.csproj": {
+    "C:\\Users\\Frederico Riachos\\Source\\Repos\\AcoStandProject\\AcoStand\\AcoStand.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tiago Rodrigues\\Desktop\\IPT\\ti2_final\\AcoStandProject\\AcoStand\\AcoStand.csproj",
+        "projectUniqueName": "C:\\Users\\Frederico Riachos\\Source\\Repos\\AcoStandProject\\AcoStand\\AcoStand.csproj",
         "projectName": "AcoStand",
-        "projectPath": "C:\\Users\\Tiago Rodrigues\\Desktop\\IPT\\ti2_final\\AcoStandProject\\AcoStand\\AcoStand.csproj",
-        "packagesPath": "C:\\Users\\Tiago Rodrigues\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tiago Rodrigues\\Desktop\\IPT\\ti2_final\\AcoStandProject\\AcoStand\\obj\\",
+        "projectPath": "C:\\Users\\Frederico Riachos\\Source\\Repos\\AcoStandProject\\AcoStand\\AcoStand.csproj",
+        "packagesPath": "C:\\Users\\Frederico Riachos\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Frederico Riachos\\Source\\Repos\\AcoStandProject\\AcoStand\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Tiago Rodrigues\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Frederico Riachos\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

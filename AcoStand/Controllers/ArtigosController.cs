@@ -27,9 +27,6 @@ namespace AcoStand.Controllers
             
             
 
-
-
-
             return View(await artigos.ToListAsync());
         }
 
