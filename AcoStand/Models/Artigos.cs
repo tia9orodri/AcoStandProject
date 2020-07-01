@@ -44,14 +44,14 @@ namespace AcoStand.Models {
         /// <summary>
         /// Chave Forasteira que indica a que dono pertence este artigo
         /// </summary>
-         [ForeignKey(nameof(Dono))]
+        [ForeignKey(nameof(Dono))]
         public int DonoFK { get; set; }
         public virtual Utilizadores Dono { get; set; }
 
         /// <summary>
         /// Chave Forasteira que indica a que categoria pertence o artigo
         /// </summary>
-        [ForeignKey("Categoria")]
+        [ForeignKey(nameof(Categoria))]
         public int CategoriaFK { get; set; }
         public virtual Categorias Categoria { get; set; }
 

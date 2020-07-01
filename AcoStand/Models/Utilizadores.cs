@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AcoStand.Models {
     /// <summary>
@@ -35,18 +36,28 @@ namespace AcoStand.Models {
         [Display(Name = "Username")]
         public string Username { get; set; }
 
+        /// <summary>
+        /// Localidade do Utilizador 
+        /// </summary>
         [Required(ErrorMessage = "Preenchimento obrigatório.")]
         [StringLength(30, ErrorMessage = "A {0} deverá conter {1} caracteres no máximo.")]
         [RegularExpression("[A-ZÁÉÍÓÚ][a-záéíóúàèÌòùãõîôûâç]+(( | e | de | do | das | da | dos |-|')[A-ZÁÉÍÓÚ][a-zzáéíóúàèÌòùãõîôûâç]+)*",
             ErrorMessage = "A {0} só pode conter letras. Cada palavra deve começar com Maiúscula.")]
         public string Localidade { get; set; }
 
+        /// <summary>
+        /// Sexo do Utilizador
+        /// </summary>
         [Required]
         [StringLength(9)]
         [RegularExpression("Masculino|Feminino", ErrorMessage = "Introduzir: Masculino ou Feminino")]
         [Display(Name = "Sexo")]
         public string Sexo { get; set; }
 
+
+        /// <summary>
+        /// Data Nascimento
+        /// </summary>
         [Required(ErrorMessage = "Preenchimento obrigatório.")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]

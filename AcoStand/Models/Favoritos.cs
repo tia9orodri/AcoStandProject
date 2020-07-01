@@ -13,14 +13,14 @@ namespace AcoStand.Models {
         /// <summary>
         /// Chave Forasteira que indica a os artigos que estao nos favoritos
         /// </summary>
-        [ForeignKey("Artigo")]
+        [ForeignKey(nameof(Artigo))]
         public int IdArtigo { get; set; }
         public virtual Artigos Artigo { get; set; }
 
         /// <summary>
         /// Chave Forasteira que indica a que utilizador pertence os fvoritos
         /// </summary>
-        [ForeignKey("Utilizador")]
+        [ForeignKey(nameof(Utilizador))]
         public int IdUtlizador { get; set; }
         public virtual Utilizadores Utilizador { get; set; }
         }

@@ -348,9 +348,6 @@ C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\bin\Debug\netco
 C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.csprojAssemblyReference.cache
-C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.csproj.CoreCompileInputs.cache
-C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.RazorAssemblyInfo.cache
 C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.RazorAssemblyInfo.cs
 C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.AssemblyInfoInputs.cache
@@ -396,3 +393,6 @@ C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\obj\Debug\netco
 C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.dll
 C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.pdb
 C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.genruntimeconfig.cache
+C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.csproj.CoreCompileInputs.cache
+C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.MvcApplicationPartsAssemblyInfo.cache
