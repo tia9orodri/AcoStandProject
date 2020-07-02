@@ -25,42 +25,17 @@ namespace AcoStand.Data {
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<IdentityRole>().HasData(
-                new IdentityRole
-                {
-                    Id="A",
-                    Name="Administrator",
-                    NormalizedName="Administrator".ToUpper()
-                },
 
-                new IdentityRole
-                {
-                    Id = "U",
-                    Name = "User",
-                    NormalizedName = "User".ToUpper()
-                }
-                );
+            //Adição de Roles
+            builder.Entity<IdentityRole>().HasData(
+                new IdentityRole{Id="A", Name="Administrator",NormalizedName="Administrator".ToUpper() },
+
+                new IdentityRole {Id = "U",Name = "User",NormalizedName = "User".ToUpper() });
 
             // insert DB seed
             builder.Entity<Utilizadores>().HasData(
-                new Utilizadores
-                {
-                    IdUtilizador = 1,
-                    Username = "Fred",
-                    Nome = "Fred",
-                    Localidade = "Golegã",
-                    Sexo = "Masculino",
-                    DataNasc = new DateTime(1998, 6, 2)
-                },
-                new Utilizadores
-                {
-                    IdUtilizador = 2,
-                    Username = "Tiago",
-                    Nome = "Tiago",
-                    Localidade = "Tomar",
-                    Sexo = "Masculino",
-                    DataNasc = new DateTime(1990, 6, 2)
-                }
+               new Utilizadores { IdUtilizador = 1, Username = "Fred", Nome = "Fred", Localidade = "Golegã", Sexo = "Masculino", DataNasc = new DateTime(1998, 6, 2) },
+               new Utilizadores { IdUtilizador = 2, Username = "Tiago", Nome = "Tiago", Localidade = "Torres Novas", Sexo = "Masculino", DataNasc = new DateTime(1996, 6, 28) }
             );
         }
 

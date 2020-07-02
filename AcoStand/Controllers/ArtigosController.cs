@@ -8,42 +8,40 @@ using Microsoft.EntityFrameworkCore;
 using AcoStand.Data;
 using AcoStand.Models;
 
-namespace AcoStand.Controllers
-{
-    public class ArtigosController : Controller
-    {
-        private readonly ApplicationDbContext _context;
+namespace AcoStand.Controllers {
+    public class ArtigosController : Controller {
 
-        public ArtigosController(ApplicationDbContext context)
-        {
-            _context = context;
+        private readonly ApplicationDbContext _db;
+
+        public ArtigosController(ApplicationDbContext context) {
+            _db = context;
         }
 
         // GET: Artigos
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             //obter a lsita dos artigos
-            var artigos = _context.Artigos.Include(a => a.Categoria).Include(a => a.Dono);
-            
-            
+            var artigos = _db.Artigos.Include(a => a.Categoria).Include(a => a.Dono);
+
+            //verifica role do user, se não for gestor só mostra os validados
+            if (!User.IsInRole("Gestores")) {
+               // artigos = _db.Artigos.Include(a => a.Categoria).Include(a => a.Dono).Where(a => a.Validado == true);
+            }
+
 
             return View(await artigos.ToListAsync());
         }
 
         // GET: Artigos/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
+        public async Task<IActionResult> Details(int? id) {
+            if (id == null) {
                 return NotFound();
             }
 
-            var artigos = await _context.Artigos
+            var artigos = await _db.Artigos
                 .Include(a => a.Categoria)
                 .Include(a => a.Dono)
                 .FirstOrDefaultAsync(m => m.IdArtigo == id);
-            if (artigos == null)
-            {
+            if (artigos == null) {
                 return NotFound();
             }
 
@@ -51,10 +49,9 @@ namespace AcoStand.Controllers
         }
 
         // GET: Artigos/Create
-        public IActionResult Create()
-        {
-            ViewData["CategoriaFK"] = new SelectList(_context.Categorias, "IdCategoria", "Designacao");
-            ViewData["DonoFK"] = new SelectList(_context.Utilizadores, "IdUtilizador", "Localidade");
+        public IActionResult Create() {
+            ViewData["CategoriaFK"] = new SelectList(_db.Categorias, "IdCategoria", "Designacao");
+            ViewData["DonoFK"] = new SelectList(_db.Utilizadores, "IdUtilizador", "Localidade");
             return View();
         }
 
@@ -63,34 +60,29 @@ namespace AcoStand.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdArtigo,Titulo,Preco,Descricao,Contacto,Validado,DonoFK,CategoriaFK")] Artigos artigos)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(artigos);
-                await _context.SaveChangesAsync();
+        public async Task<IActionResult> Create([Bind("IdArtigo,Titulo,Preco,Descricao,Contacto,Validado,DonoFK,CategoriaFK")] Artigos artigos) {
+            if (ModelState.IsValid) {
+                _db.Add(artigos);
+                await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoriaFK"] = new SelectList(_context.Categorias, "IdCategoria", "Designacao", artigos.CategoriaFK);
-            ViewData["DonoFK"] = new SelectList(_context.Utilizadores, "IdUtilizador", "Localidade", artigos.DonoFK);
+            ViewData["CategoriaFK"] = new SelectList(_db.Categorias, "IdCategoria", "Designacao", artigos.CategoriaFK);
+            ViewData["DonoFK"] = new SelectList(_db.Utilizadores, "IdUtilizador", "Localidade", artigos.DonoFK);
             return View(artigos);
         }
 
         // GET: Artigos/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
+        public async Task<IActionResult> Edit(int? id) {
+            if (id == null) {
                 return NotFound();
             }
 
-            var artigos = await _context.Artigos.FindAsync(id);
-            if (artigos == null)
-            {
+            var artigos = await _db.Artigos.FindAsync(id);
+            if (artigos == null) {
                 return NotFound();
             }
-            ViewData["CategoriaFK"] = new SelectList(_context.Categorias, "IdCategoria", "Designacao", artigos.CategoriaFK);
-            ViewData["DonoFK"] = new SelectList(_context.Utilizadores, "IdUtilizador", "Localidade", artigos.DonoFK);
+            ViewData["CategoriaFK"] = new SelectList(_db.Categorias, "IdCategoria", "Designacao", artigos.CategoriaFK);
+            ViewData["DonoFK"] = new SelectList(_db.Utilizadores, "IdUtilizador", "Localidade", artigos.DonoFK);
             return View(artigos);
         }
 
@@ -99,52 +91,40 @@ namespace AcoStand.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdArtigo,Titulo,Preco,Descricao,Contacto,Validado,DonoFK,CategoriaFK")] Artigos artigos)
-        {
-            if (id != artigos.IdArtigo)
-            {
+        public async Task<IActionResult> Edit(int id, [Bind("IdArtigo,Titulo,Preco,Descricao,Contacto,Validado,DonoFK,CategoriaFK")] Artigos artigos) {
+            if (id != artigos.IdArtigo) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(artigos);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ArtigosExists(artigos.IdArtigo))
-                    {
+            if (ModelState.IsValid) {
+                try {
+                    _db.Update(artigos);
+                    await _db.SaveChangesAsync();
+                } catch (DbUpdateConcurrencyException) {
+                    if (!ArtigosExists(artigos.IdArtigo)) {
                         return NotFound();
-                    }
-                    else
-                    {
+                    } else {
                         throw;
                     }
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoriaFK"] = new SelectList(_context.Categorias, "IdCategoria", "Designacao", artigos.CategoriaFK);
-            ViewData["DonoFK"] = new SelectList(_context.Utilizadores, "IdUtilizador", "Localidade", artigos.DonoFK);
+            ViewData["CategoriaFK"] = new SelectList(_db.Categorias, "IdCategoria", "Designacao", artigos.CategoriaFK);
+            ViewData["DonoFK"] = new SelectList(_db.Utilizadores, "IdUtilizador", "Localidade", artigos.DonoFK);
             return View(artigos);
         }
 
         // GET: Artigos/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
+        public async Task<IActionResult> Delete(int? id) {
+            if (id == null) {
                 return NotFound();
             }
 
-            var artigos = await _context.Artigos
+            var artigos = await _db.Artigos
                 .Include(a => a.Categoria)
                 .Include(a => a.Dono)
                 .FirstOrDefaultAsync(m => m.IdArtigo == id);
-            if (artigos == null)
-            {
+            if (artigos == null) {
                 return NotFound();
             }
 
@@ -154,17 +134,15 @@ namespace AcoStand.Controllers
         // POST: Artigos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var artigos = await _context.Artigos.FindAsync(id);
-            _context.Artigos.Remove(artigos);
-            await _context.SaveChangesAsync();
+        public async Task<IActionResult> DeleteConfirmed(int id) {
+            var artigos = await _db.Artigos.FindAsync(id);
+            _db.Artigos.Remove(artigos);
+            await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ArtigosExists(int id)
-        {
-            return _context.Artigos.Any(e => e.IdArtigo == id);
+        private bool ArtigosExists(int id) {
+            return _db.Artigos.Any(e => e.IdArtigo == id);
         }
     }
 }
