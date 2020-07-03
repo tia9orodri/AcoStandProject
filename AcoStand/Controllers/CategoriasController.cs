@@ -7,11 +7,16 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AcoStand.Data;
 using AcoStand.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace AcoStand.Controllers
 {
+    [Authorize]
     public class CategoriasController : Controller
     {
+
+         
         private readonly ApplicationDbContext _context;
 
         public CategoriasController(ApplicationDbContext context)
@@ -22,8 +27,13 @@ namespace AcoStand.Controllers
         // GET: Categorias
         public async Task<IActionResult> Index()
         {
+            //Se o Utilizador nao for administrador volta para a pagina inicial
+            if(!User.IsInRole("Administrator")) {
+                return RedirectToAction("Index","Artigos");
+
+            } else { 
             return View(await _context.Categorias.ToListAsync());
-        }
+        }}
 
         // GET: Categorias/Details/5
         public async Task<IActionResult> Details(int? id)
