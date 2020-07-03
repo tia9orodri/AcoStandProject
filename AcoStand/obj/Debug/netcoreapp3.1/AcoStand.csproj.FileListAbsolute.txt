@@ -592,3 +592,11 @@ C:\Users\tia9o\OneDrive\Área de Trabalho\projeto final\AcoStand\obj\Debug\netco
 C:\Users\tia9o\OneDrive\Área de Trabalho\projeto final\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.dll
 C:\Users\tia9o\OneDrive\Área de Trabalho\projeto final\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.pdb
 C:\Users\tia9o\OneDrive\Área de Trabalho\projeto final\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.genruntimeconfig.cache
+C:\Users\tia9o\OneDrive\Área de Trabalho\projeto final\AcoStand\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\tia9o\OneDrive\Área de Trabalho\projeto final\AcoStand\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\tia9o\OneDrive\Área de Trabalho\projeto final\AcoStand\bin\Debug\netcoreapp3.1\X.PagedList.dll
+C:\Users\tia9o\OneDrive\Área de Trabalho\projeto final\AcoStand\bin\Debug\netcoreapp3.1\X.PagedList.Mvc.Core.dll
+C:\Users\tia9o\OneDrive\Área de Trabalho\projeto final\AcoStand\bin\Debug\netcoreapp3.1\X.PagedList.Web.Common.dll
+C:\Users\tia9o\OneDrive\Área de Trabalho\projeto final\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.csproj.CoreCompileInputs.cache
+C:\Users\tia9o\OneDrive\Área de Trabalho\projeto final\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\tia9o\OneDrive\Área de Trabalho\projeto final\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.MvcApplicationPartsAssemblyInfo.cache

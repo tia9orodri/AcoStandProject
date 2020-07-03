@@ -13,24 +13,28 @@ namespace AcoStand.Data {
     /// </summary>
     public class ApplicationDbContext : IdentityDbContext {
 
-
+        
         /// <summary>
         /// Constutor da classe
         /// serve para ligar esta classe a BD
         /// </summary>
-        /// <param name="options"></param>
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options) { }
+        /// <param name="db"></param>
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> db) : base(db) { }
 
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
+        protected override void OnModelCreating(ModelBuilder builder) {
             base.OnModelCreating(builder);
 
 
             //Adição de Roles
             builder.Entity<IdentityRole>().HasData(
-                new IdentityRole{Id="A", Name="Administrator",NormalizedName="Administrator".ToUpper() },
+                new IdentityRole { Id = "A", Name = "Administrator", NormalizedName = "Administrator".ToUpper() },
+                new IdentityRole { Id = "U", Name = "User", NormalizedName = "User".ToUpper() });
 
-                new IdentityRole {Id = "U",Name = "User",NormalizedName = "User".ToUpper() });
+            //######UTILIZADORES######
+            builder.Entity<IdentityUser>().HasData(
+                    new IdentityUser { }
+                );
+
 
             // insert DB seed
             builder.Entity<Utilizadores>().HasData(
@@ -49,4 +53,4 @@ namespace AcoStand.Data {
     }
 
 
-    }
+}
