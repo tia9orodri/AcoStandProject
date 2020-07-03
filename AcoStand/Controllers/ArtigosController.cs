@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AcoStand.Data;
 using AcoStand.Models;
+using X.PagedList;
 
 namespace AcoStand.Controllers {
     public class ArtigosController : Controller {
@@ -18,7 +19,12 @@ namespace AcoStand.Controllers {
         }
 
         // GET: Artigos
-        public async Task<IActionResult> Index() {
+        public async Task<IActionResult> Index(int? pagina) {
+            //Define o numero de itens por cada página
+            const int itensPorPagina = 5;
+            //se nao informado nº da página vai para a 1
+            int numeroPagina = (pagina ?? 1);
+
             //obter a lsita dos artigos
             var artigos = _db.Artigos.Include(a => a.Categoria).Include(a => a.Dono);
 
@@ -28,7 +34,7 @@ namespace AcoStand.Controllers {
             }
 
 
-            return View(await artigos.ToListAsync());
+            return View(await artigos.ToPagedListAsync(numeroPagina, itensPorPagina));
         }
 
         // GET: Artigos/Details/5
