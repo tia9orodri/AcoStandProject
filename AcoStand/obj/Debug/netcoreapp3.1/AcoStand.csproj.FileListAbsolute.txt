@@ -600,3 +600,8 @@ C:\Users\tia9o\OneDrive\Área de Trabalho\projeto final\AcoStand\bin\Debug\netco
 C:\Users\tia9o\OneDrive\Área de Trabalho\projeto final\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.csproj.CoreCompileInputs.cache
 C:\Users\tia9o\OneDrive\Área de Trabalho\projeto final\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\tia9o\OneDrive\Área de Trabalho\projeto final\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\bin\Debug\netcoreapp3.1\X.PagedList.dll
+C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\bin\Debug\netcoreapp3.1\X.PagedList.Mvc.Core.dll
+C:\Users\Frederico Riachos\Source\Repos\AcoStandProject\AcoStand\bin\Debug\netcoreapp3.1\X.PagedList.Web.Common.dll

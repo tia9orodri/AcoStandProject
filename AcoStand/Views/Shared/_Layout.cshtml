@@ -19,24 +19,34 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Artigos" asp-action="Index">Artigos</a>
+                        </li>
 
                         @* Apenas o gestores conseguem ver os botões Categorias e Utilizadores *@
-                        @if (User.IsInRole("Gestores")) {
+                        @if (User.IsInRole("Gestores"))
+                        {
                             <li>@Html.ActionLink("Utilizadores", "Index", "Utilizador")</li>
-                            }
+                        }
 
-                        @if (User.IsInRole("Gestores")) {
+                        @if (User.IsInRole("Gestores"))
+                        {
                             <li>@Html.ActionLink("Categorias", "Index", "Categoria")</li>
-                            }
+                        }
 
-                        @if (User.IsInRole("Utilizador") && !User.IsInRole("Gestores")) {
+                        @if (User.IsInRole("Utilizador") && !User.IsInRole("Gestores"))
+                        {
                             <li>@Html.ActionLink("Editar meus dados", "../Utilizador")</li>
-                            }
+                        }
                     </ul>
                    
                 </div>
             </div>
         </nav>
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">
