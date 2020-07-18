@@ -25,13 +25,14 @@
             <th>
                 @Html.DisplayNameFor(model => model.DataNasc)
             </th>
+
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model) {
             //Se o utilizador nao for gestor, apenas poderá ver os seus detalhes
-            if (!User.IsInRole("Gestores")) {
+            if (!User.IsInRole("Admin")) {
                 if (item.Username == User.Identity.Name) {
                     <tr>
                         <td>

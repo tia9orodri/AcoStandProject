@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AcoStand.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200701110752_V1")]
-    partial class V1
+    [Migration("20200718042440_begin")]
+    partial class begin
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -152,32 +152,16 @@ namespace AcoStand.Migrations
                         .HasColumnType("nvarchar(9)")
                         .HasMaxLength(9);
 
+                    b.Property<string>("UserFK")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdUtilizador");
 
                     b.ToTable("Utilizadores");
-
-                    b.HasData(
-                        new
-                        {
-                            IdUtilizador = 1,
-                            DataNasc = new DateTime(1998, 6, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Localidade = "Golegã",
-                            Nome = "Fred",
-                            Sexo = "Masculino",
-                            Username = "Fred"
-                        },
-                        new
-                        {
-                            IdUtilizador = 2,
-                            DataNasc = new DateTime(1990, 6, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Localidade = "Tomar",
-                            Nome = "Tiago",
-                            Sexo = "Masculino",
-                            Username = "Tiago"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -205,22 +189,6 @@ namespace AcoStand.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "A",
-                            ConcurrencyStamp = "3c646585-248e-450f-9b9f-c52c05a6582c",
-                            Name = "Administrator",
-                            NormalizedName = "ADMINISTRATOR"
-                        },
-                        new
-                        {
-                            Id = "U",
-                            ConcurrencyStamp = "8d7a7a51-d77b-4d64-96fd-ba13e156d7dc",
-                            Name = "User",
-                            NormalizedName = "USER"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -401,13 +369,13 @@ namespace AcoStand.Migrations
                     b.HasOne("AcoStand.Models.Categorias", "Categoria")
                         .WithMany("ListaArtigos")
                         .HasForeignKey("CategoriaFK")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("AcoStand.Models.Utilizadores", "Dono")
                         .WithMany("ListaArtigos")
                         .HasForeignKey("DonoFK")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -416,13 +384,13 @@ namespace AcoStand.Migrations
                     b.HasOne("AcoStand.Models.Artigos", "Artigo")
                         .WithMany("ListaFavUtilizador")
                         .HasForeignKey("IdArtigo")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("AcoStand.Models.Utilizadores", "Utilizador")
                         .WithMany("ListaFavoritos")
                         .HasForeignKey("IdUtlizador")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -431,7 +399,7 @@ namespace AcoStand.Migrations
                     b.HasOne("AcoStand.Models.Artigos", "Artigo")
                         .WithMany("ListaRecursos")
                         .HasForeignKey("ArtigoFK")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 

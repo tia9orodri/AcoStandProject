@@ -26,20 +26,26 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Artigos" asp-action="Index">Artigos</a>
                         </li>
 
-                        @* Apenas o gestores conseguem ver os botões Categorias e Utilizadores *@
-                        @if (User.IsInRole("Gestores"))
+                        @* Apenas os admin conseguem ver os botões Categorias e Utilizadores *@
+                        @if (User.IsInRole("Admin"))
                         {
-                            <li>@Html.ActionLink("Utilizadores", "Index", "Utilizador")</li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Utilizadores" asp-action="Index">Utilizadores</a>
+                            </li>
                         }
 
-                        @if (User.IsInRole("Gestores"))
+                        @if (User.IsInRole("Admin"))
                         {
-                            <li>@Html.ActionLink("Categorias", "Index", "Categoria")</li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Categorias" asp-action="Index">Categorias</a>
+                            </li>
                         }
 
-                        @if (User.IsInRole("Utilizador") && !User.IsInRole("Gestores"))
+                        @if (User.IsInRole("User") && !User.IsInRole("Admin"))
                         {
-                            <li>@Html.ActionLink("Editar meus dados", "../Utilizador")</li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Utilizadores" asp-action="Edit">Editar os meus dados</a>
+                            </li>
                         }
                     </ul>
                    

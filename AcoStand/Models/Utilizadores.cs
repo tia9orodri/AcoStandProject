@@ -11,6 +11,7 @@ namespace AcoStand.Models {
     /// </summary>
     public class Utilizadores {
 
+
         public Utilizadores() {
             //Instanciar o Icollection de Artigos
             ListaArtigos = new HashSet<Artigos>();
@@ -72,9 +73,12 @@ namespace AcoStand.Models {
         /// <summary>
         /// Lista de Favoritos de um Utilizador
         /// </summary>
-        public virtual ICollection<Favoritos> ListaFavoritos { get; set; } 
+        public virtual ICollection<Favoritos> ListaFavoritos { get; set; }
+
+        // Chave estrangeira que fará a ligação das tabelas entre os utilizadores do Identity e um User
+        [Required]
+        public string UserFK { get; set; }
 
 
-
-        }
+    }
     }

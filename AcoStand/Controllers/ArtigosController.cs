@@ -8,8 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using AcoStand.Data;
 using AcoStand.Models;
 using X.PagedList;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AcoStand.Controllers {
+
+    [Authorize(Roles = "User, Admin")]
     public class ArtigosController : Controller {
 
         private readonly ApplicationDbContext _db;

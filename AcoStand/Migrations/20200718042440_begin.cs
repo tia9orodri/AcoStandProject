@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AcoStand.Migrations
 {
-    public partial class iniMigration : Migration
+    public partial class begin : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,6 +44,37 @@ namespace AcoStand.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Categorias",
+                columns: table => new
+                {
+                    IdCategoria = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Designacao = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categorias", x => x.IdCategoria);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Utilizadores",
+                columns: table => new
+                {
+                    IdUtilizador = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(maxLength: 75, nullable: false),
+                    Username = table.Column<string>(nullable: true),
+                    Localidade = table.Column<string>(maxLength: 30, nullable: false),
+                    Sexo = table.Column<string>(maxLength: 9, nullable: false),
+                    DataNasc = table.Column<DateTime>(nullable: false),
+                    UserFK = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Utilizadores", x => x.IdUtilizador);
                 });
 
             migrationBuilder.CreateTable(
@@ -152,6 +183,94 @@ namespace AcoStand.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Artigos",
+                columns: table => new
+                {
+                    IdArtigo = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Titulo = table.Column<string>(maxLength: 75, nullable: false),
+                    Preco = table.Column<string>(nullable: false),
+                    Descricao = table.Column<string>(maxLength: 500, nullable: false),
+                    Contacto = table.Column<string>(nullable: false),
+                    Validado = table.Column<bool>(nullable: false),
+                    DonoFK = table.Column<int>(nullable: false),
+                    CategoriaFK = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Artigos", x => x.IdArtigo);
+                    table.ForeignKey(
+                        name: "FK_Artigos_Categorias_CategoriaFK",
+                        column: x => x.CategoriaFK,
+                        principalTable: "Categorias",
+                        principalColumn: "IdCategoria",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Artigos_Utilizadores_DonoFK",
+                        column: x => x.DonoFK,
+                        principalTable: "Utilizadores",
+                        principalColumn: "IdUtilizador",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Favoritos",
+                columns: table => new
+                {
+                    IdFavoritos = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdArtigo = table.Column<int>(nullable: false),
+                    IdUtlizador = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Favoritos", x => x.IdFavoritos);
+                    table.ForeignKey(
+                        name: "FK_Favoritos_Artigos_IdArtigo",
+                        column: x => x.IdArtigo,
+                        principalTable: "Artigos",
+                        principalColumn: "IdArtigo",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Favoritos_Utilizadores_IdUtlizador",
+                        column: x => x.IdUtlizador,
+                        principalTable: "Utilizadores",
+                        principalColumn: "IdUtilizador",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Recursos",
+                columns: table => new
+                {
+                    IdRecursos = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Designacao = table.Column<string>(nullable: false),
+                    Tipo = table.Column<string>(nullable: false),
+                    ArtigoFK = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Recursos", x => x.IdRecursos);
+                    table.ForeignKey(
+                        name: "FK_Recursos_Artigos_ArtigoFK",
+                        column: x => x.ArtigoFK,
+                        principalTable: "Artigos",
+                        principalColumn: "IdArtigo",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Artigos_CategoriaFK",
+                table: "Artigos",
+                column: "CategoriaFK");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Artigos_DonoFK",
+                table: "Artigos",
+                column: "DonoFK");
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -190,6 +309,21 @@ namespace AcoStand.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Favoritos_IdArtigo",
+                table: "Favoritos",
+                column: "IdArtigo");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Favoritos_IdUtlizador",
+                table: "Favoritos",
+                column: "IdUtlizador");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Recursos_ArtigoFK",
+                table: "Recursos",
+                column: "ArtigoFK");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -210,10 +344,25 @@ namespace AcoStand.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Favoritos");
+
+            migrationBuilder.DropTable(
+                name: "Recursos");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Artigos");
+
+            migrationBuilder.DropTable(
+                name: "Categorias");
+
+            migrationBuilder.DropTable(
+                name: "Utilizadores");
         }
     }
 }
