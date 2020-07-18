@@ -9,7 +9,7 @@
 <h1>Artigos</h1>
 @*Se utilizador estiver "logado" aparece para adicionar novo artigo*@
 <p>
-    @if (User.IsInRole("User")) {
+    @if (User.IsInRole("Admin")) {
         <a asp-action="Create">Novo Artigo</a>
     }
 
@@ -38,8 +38,8 @@
             </th>
 
 
-            @*Se for Gestor, aparece icon que valida artigos*@
-            @if (User.IsInRole("Administrator")) {
+            @*Se for Admin, aparece icon que valida artigos*@
+            @if (User.IsInRole("Admin")) {
                 <text>
                     <th>
                         @Html.ActionLink("Validado", "Index", new { sortOrder = ViewBag.ordenarValidado, currentFilter = ViewBag.CurrentFilter })
@@ -77,7 +77,7 @@
                 }
                 <td>
                     @if (User.IsInRole("User")) {
-                        if (User.Identity.Name == item.Dono.Username || User.IsInRole("Gestores")) {
+                        if (User.Identity.Name == item.Dono.Username || User.IsInRole("Admin")) {
                             <text>
                                 @Html.ActionLink("Editar", "Edit", new { id = item.IdArtigo })
                                 <br />

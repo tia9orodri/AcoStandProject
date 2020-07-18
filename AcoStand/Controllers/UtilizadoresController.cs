@@ -9,6 +9,7 @@ using AcoStand.Data;
 using AcoStand.Models;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace AcoStand.Controllers
 {

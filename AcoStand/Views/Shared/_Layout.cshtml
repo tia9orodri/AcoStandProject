@@ -44,7 +44,7 @@
                         @if (User.IsInRole("User") && !User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Utilizadores" asp-action="Edit">Editar os meus dados</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Utilizadores" asp-action="Edit" asp-route-id="">Editar os meus dados</a>
                             </li>
                         }
                     </ul>

@@ -36,7 +36,6 @@ namespace AcoStand.Controllers {
                // artigos = _db.Artigos.Include(a => a.Categoria).Include(a => a.Dono).Where(a => a.Validado == true);
             }
 
-
             return View(await artigos.ToPagedListAsync(numeroPagina, itensPorPagina));
         }
 

@@ -68,6 +68,47 @@ namespace AcoStand.Areas.Identity.Pages.Account
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
 
+            [Display(Name = "Nome do Utilizador")]
+            [Required(ErrorMessage = "Preenchimento obrigatório.")]
+            [StringLength(75, ErrorMessage = "O {0} deverá conter {1} caracteres no máximo.")]
+            [RegularExpression("[A-ZÁÉÍÓÚ][a-záéíóúàèÌòùãõîôûâç]+(( | e | de | do | das | da | dos |-|')[A-ZÁÉÍÓÚ][a-zzáéíóúàèÌòùãõîôûâç]+)*",
+                ErrorMessage = "P.f verifique o {0} introduzido. Este deve ser composto por primeiro e ultimo nome. Cada palavra deve começar com Maiúscula. Não são aceites caracteres numéricos.")]
+            public string Nome { get; set; }
+
+            /// <summary>
+            /// Username do utilizador
+            /// </summary>
+            [Display(Name = "Username")]
+            public string Username { get; set; }
+
+            /// <summary>
+            /// Localidade do Utilizador 
+            /// </summary>
+            [Required(ErrorMessage = "Preenchimento obrigatório.")]
+            [StringLength(30, ErrorMessage = "A {0} deverá conter {1} caracteres no máximo.")]
+            [RegularExpression("[A-ZÁÉÍÓÚ][a-záéíóúàèÌòùãõîôûâç]+(( | e | de | do | das | da | dos |-|')[A-ZÁÉÍÓÚ][a-zzáéíóúàèÌòùãõîôûâç]+)*",
+                ErrorMessage = "A {0} só pode conter letras. Cada palavra deve começar com Maiúscula.")]
+            public string Localidade { get; set; }
+
+            /// <summary>
+            /// Sexo do Utilizador
+            /// </summary>
+            [Required]
+            [StringLength(9)]
+            [RegularExpression("Masculino|Feminino", ErrorMessage = "Introduzir: Masculino ou Feminino")]
+            [Display(Name = "Sexo")]
+            public string Sexo { get; set; }
+
+
+            /// <summary>
+            /// Data Nascimento
+            /// </summary>
+            [Required(ErrorMessage = "Preenchimento obrigatório.")]
+            [DataType(DataType.Date)]
+            [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+            [Display(Name = "Data de Nascimento")]
+            public DateTime DataNasc { get; set; }
+
             public string Name { get; set; }
         }
 
@@ -91,8 +132,8 @@ namespace AcoStand.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User created a new account with password.");
                     
-                    //ATENÇÂO, FALTA TAMBÈM NO REGISTER.CSHTML
-                    context.Utilizadores.Add(new Models.Utilizadores { BI = Input.BI, DataNascimento = Input.DataNascimento, Genero = Input.Genero, Localidade = Input.Localidade, Nome = Input.Nome, Telemovel = Input.Telemovel, UserFK = user.Id });)
+                    
+                    context.Utilizadores.Add(new Models.Utilizadores { Nome = Input.Nome, Username = Input.Username, Sexo = Input.Sexo, Localidade = Input.Localidade, DataNasc = Input.DataNasc, UserFK = user.Id });
                     await context.SaveChangesAsync();
 
                     await _signInManager.SignInAsync(user, isPersistent: false);

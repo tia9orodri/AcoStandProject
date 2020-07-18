@@ -33,6 +33,7 @@ namespace AcoStand.Models {
         [StringLength(500, ErrorMessage = "O {0} deverá ter, no máximo, {1} caracteres.")]
         public string Descricao { get; set; }
 
+        [Display(Name = "Contacto")]
         [Required(ErrorMessage = "O preenchimento do {0} é obrigatório.")]
         public string Contacto { get; set; }
 
@@ -44,6 +45,7 @@ namespace AcoStand.Models {
         /// <summary>
         /// Chave Forasteira que indica a que dono pertence este artigo
         /// </summary>
+        [Display(Name = "Dono")]
         [ForeignKey(nameof(Dono))]
         public int DonoFK { get; set; }
         public virtual Utilizadores Dono { get; set; }
@@ -51,6 +53,7 @@ namespace AcoStand.Models {
         /// <summary>
         /// Chave Forasteira que indica a que categoria pertence o artigo
         /// </summary>
+        [Display(Name = "Categoria")]
         [ForeignKey(nameof(Categoria))]
         public int CategoriaFK { get; set; }
         public virtual Categorias Categoria { get; set; }
