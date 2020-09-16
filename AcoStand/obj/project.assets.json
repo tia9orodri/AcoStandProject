@@ -10187,23 +10187,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Frederico Riachos\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\tia9orodri\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Frederico Riachos\\Source\\Repos\\AcoStandProject\\AcoStand\\AcoStand.csproj",
+      "projectUniqueName": "C:\\ti2Server\\AcoStandProject\\AcoStand\\AcoStand.csproj",
       "projectName": "AcoStand",
-      "projectPath": "C:\\Users\\Frederico Riachos\\Source\\Repos\\AcoStandProject\\AcoStand\\AcoStand.csproj",
-      "packagesPath": "C:\\Users\\Frederico Riachos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Frederico Riachos\\Source\\Repos\\AcoStandProject\\AcoStand\\obj\\",
+      "projectPath": "C:\\ti2Server\\AcoStandProject\\AcoStand\\AcoStand.csproj",
+      "packagesPath": "C:\\Users\\tia9orodri\\.nuget\\packages\\",
+      "outputPath": "C:\\ti2Server\\AcoStandProject\\AcoStand\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Frederico Riachos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tia9orodri\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10286,7 +10282,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
