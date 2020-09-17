@@ -59,7 +59,7 @@ namespace AcoStand.Controllers {
         // GET: Artigos/Create
         public IActionResult Create() {
             ViewData["CategoriaFK"] = new SelectList(_db.Categorias, "IdCategoria", "Designacao");
-            ViewData["DonoFK"] = new SelectList(_db.Utilizadores, "IdUtilizador", "Localidade");
+            ViewData["DonoFK"] = new SelectList(_db.Utilizadores, "IdUtilizador", "Nome");
             return View();
         }
 
@@ -75,7 +75,7 @@ namespace AcoStand.Controllers {
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CategoriaFK"] = new SelectList(_db.Categorias, "IdCategoria", "Designacao", artigos.CategoriaFK);
-            ViewData["DonoFK"] = new SelectList(_db.Utilizadores, "IdUtilizador", "Localidade", artigos.DonoFK);
+            ViewData["DonoFK"] = new SelectList(_db.Utilizadores, "IdUtilizador", "Nome", artigos.DonoFK);
             return View(artigos);
         }
 
