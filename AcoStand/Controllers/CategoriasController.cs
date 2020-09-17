@@ -9,31 +9,27 @@ using AcoStand.Data;
 using AcoStand.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using X.PagedList;
 
 namespace AcoStand.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "User, Admin")]
     public class CategoriasController : Controller
     {
 
-         
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _db;
 
         public CategoriasController(ApplicationDbContext context)
         {
-            _context = context;
+            _db = context;
         }
 
         // GET: Categorias
         public async Task<IActionResult> Index()
         {
-            //Se o Utilizador nao for administrador volta para a pagina inicial
-            if(!User.IsInRole("Administrator")) {
-                return RedirectToAction("Index","Artigos");
+            return View(await _db.Categorias.ToListAsync());
 
-            } else { 
-            return View(await _context.Categorias.ToListAsync());
-        }}
+        }
 
         // GET: Categorias/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -43,7 +39,7 @@ namespace AcoStand.Controllers
                 return NotFound();
             }
 
-            var categorias = await _context.Categorias
+            var categorias = await _db.Categorias
                 .FirstOrDefaultAsync(m => m.IdCategoria == id);
             if (categorias == null)
             {
@@ -68,8 +64,8 @@ namespace AcoStand.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(categorias);
-                await _context.SaveChangesAsync();
+                _db.Add(categorias);
+                await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(categorias);
@@ -83,7 +79,7 @@ namespace AcoStand.Controllers
                 return NotFound();
             }
 
-            var categorias = await _context.Categorias.FindAsync(id);
+            var categorias = await _db.Categorias.FindAsync(id);
             if (categorias == null)
             {
                 return NotFound();
@@ -107,8 +103,8 @@ namespace AcoStand.Controllers
             {
                 try
                 {
-                    _context.Update(categorias);
-                    await _context.SaveChangesAsync();
+                    _db.Update(categorias);
+                    await _db.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -134,7 +130,7 @@ namespace AcoStand.Controllers
                 return NotFound();
             }
 
-            var categorias = await _context.Categorias
+            var categorias = await _db.Categorias
                 .FirstOrDefaultAsync(m => m.IdCategoria == id);
             if (categorias == null)
             {
@@ -149,15 +145,15 @@ namespace AcoStand.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var categorias = await _context.Categorias.FindAsync(id);
-            _context.Categorias.Remove(categorias);
-            await _context.SaveChangesAsync();
+            var categorias = await _db.Categorias.FindAsync(id);
+            _db.Categorias.Remove(categorias);
+            await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CategoriasExists(int id)
         {
-            return _context.Categorias.Any(e => e.IdCategoria == id);
+            return _db.Categorias.Any(e => e.IdCategoria == id);
         }
     }
 }
