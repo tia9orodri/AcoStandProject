@@ -16,8 +16,14 @@ namespace AcoStand.Controllers {
             }
 
         public IActionResult Index() {
-            return View();
+            if (this.User.Identity.IsAuthenticated)
+            {
+                return View("~/Views/Home/Index_Auth.cshtml");
+            } else 
+            { 
+                return View("~/Views/Home/Index.cshtml");
             }
+        }
 
         public IActionResult Privacy() {
             return View();
