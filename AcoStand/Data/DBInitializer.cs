@@ -146,9 +146,9 @@ namespace AcoStand.Data
             var artigos = new Artigos[]
              {
                 new Artigos {Titulo = "Audi A4", Preco = "25,000", Descricao = "Carro como novo, inspeção em dia", Contacto = "a@aa.aa", Validado = true, DonoFK = 1, CategoriaFK = categorias[0].IdCategoria },
-                new Artigos {Titulo = "BMW X5", Preco = "30,000", Descricao = "Carro como novo, inspeção em dia", Contacto = "a@aa.aa", Validado = true, DonoFK = 1, CategoriaFK = categorias[0].IdCategoria },
+                new Artigos {Titulo = "BMW X5", Preco = "30,000", Descricao = "Carro como novo, inspeção em dia", Contacto = "a@aa.aa", Validado = true, DonoFK = 2, CategoriaFK = categorias[0].IdCategoria },
                 new Artigos {Titulo = "Opel XXX", Preco = "10,000", Descricao = "Carro como novo, inspeção em dia", Contacto = "a@aa.aa", Validado = true, DonoFK = 1, CategoriaFK = categorias[0].IdCategoria },
-                new Artigos {Titulo = "Opel YY", Preco = "13,000", Descricao = "Carro como novo, inspeção em dia", Contacto = "a@aa.aa", Validado = true, DonoFK = 1, CategoriaFK = categorias[0].IdCategoria },
+                new Artigos {Titulo = "Opel YY", Preco = "13,000", Descricao = "Carro como novo, inspeção em dia", Contacto = "a@aa.aa", Validado = true, DonoFK = 2, CategoriaFK = categorias[0].IdCategoria },
                 new Artigos {Titulo = "Ford", Preco = "8,000", Descricao = "Carro como novo, inspeção em dia", Contacto = "a@aa.aa", Validado = true, DonoFK = 1, CategoriaFK = categorias[0].IdCategoria},
                 new Artigos {Titulo = "Nissan x", Preco = "27,000", Descricao = "Carro como novo, inspeção em dia", Contacto = "a@aa.aa", Validado = true, DonoFK = 1, CategoriaFK = categorias[0].IdCategoria}
              };
