@@ -28,7 +28,6 @@ namespace AcoStand.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _db.Categorias.ToListAsync());
-
         }
 
         // GET: Categorias/Details/5
