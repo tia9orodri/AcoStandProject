@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rFtnzo4LPJs1tAcoZfSfxRmCdyABdUMgFv3zDJy9tbyrCiTrSbUFTMYkh8GAKzl3n7Ax2HpN+8MP7olCV0eCyQ==",
+  "dgSpecHash": "tCAxAAcLJF8lCqw9MOS7UGd4+H5bMYpj1Deuqr2BsOOUNKyKpcbceD1rZMyrbN8pTsJnNIFW7wDI2CGFxXt+SA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Frederico Riachos\\Source\\Repos\\AcoStandProject\\AcoStand\\AcoStand.csproj",
+  "projectFilePath": "C:\\Users\\Frederico Riachos\\source\\repos\\AcoStandProject\\AcoStand\\AcoStand.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Frederico Riachos\\.nuget\\packages\\bootstrap\\4.5.0\\bootstrap.4.5.0.nupkg.sha512",
     "C:\\Users\\Frederico Riachos\\.nuget\\packages\\jquery\\3.0.0\\jquery.3.0.0.nupkg.sha512",

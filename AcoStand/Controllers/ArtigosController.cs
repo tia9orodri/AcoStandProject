@@ -17,7 +17,8 @@ namespace AcoStand.Controllers {
 
         private readonly ApplicationDbContext _db;
 
-        public ArtigosController(ApplicationDbContext context) {
+        public ArtigosController(ApplicationDbContext context) 
+        {
             _db = context;
         }
 
