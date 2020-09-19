@@ -821,5 +821,5 @@ C:\ti2Server\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\staticwebassets\Ac
 C:\ti2Server\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.dll
 C:\ti2Server\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.pdb
 C:\ti2Server\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\AcoStand.genruntimeconfig.cache
-C:\Users\Frederico Riachos\source\repos\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\Razor\Views\Favoritos\Index.cshtml.g.cs
-C:\Users\Frederico Riachos\source\repos\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index_Auth.cshtml.g.cs
+C:\ti2Server\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\Razor\Views\Favoritos\Index.cshtml.g.cs
+C:\ti2Server\AcoStandProject\AcoStand\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index_Auth.cshtml.g.cs
